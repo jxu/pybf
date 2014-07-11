@@ -8,7 +8,7 @@ CELL_MAX = 256
 
 
 
-with open(FILE, 'r') as f:
+with open("examples/"+FILE, 'r') as f:
     program = f.read()
 
 tape = [0] * 300000 # Standard size
