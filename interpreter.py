@@ -3,7 +3,7 @@
 
 # Global variables
 DEBUG = False
-FILE = "print_as_number.b"
+FILE = "multiply2.b"
 CELL_MAX = 256
 
 
