@@ -7,7 +7,6 @@ FILE = "multiply2.b"
 CELL_MAX = 256
 
 
-
 with open("examples/"+FILE, 'r') as f:
     program = f.read()
 
@@ -45,36 +44,36 @@ while instruction_pointer < len(program):
         tape[data_pointer] = ord(input())
              
     if char == "[" and data == 0:
-            instruction_pointer_forward = False
-            
-            loop_level = 1
-            
-            while loop_level > 0:
-                instruction_pointer += 1
-                char = program[instruction_pointer]
-                # Simple bracket parsing
-                if char == "[":
-                    loop_level += 1
-                if char == "]":
-                    loop_level -= 1
-
+        instruction_pointer_forward = False
+        
+        loop_level = 1
+        
+        while loop_level > 0:
             instruction_pointer += 1
+            char = program[instruction_pointer]
+            # Simple bracket parsing
+            if char == "[":
+                loop_level += 1
+            if char == "]":
+                loop_level -= 1
+
+        instruction_pointer += 1
             
     if char == "]" and data != 0:
-            instruction_pointer_forward = False
-            
-            loop_level = 1
-            
-            while loop_level > 0:
-                instruction_pointer -= 1
-                char = program[instruction_pointer]
-                # Reverse parsing
-                if char == "[":
-                    loop_level -= 1
-                if char == "]":
-                    loop_level += 1
-                    
-            instruction_pointer += 1
+        instruction_pointer_forward = False
+        
+        loop_level = 1
+        
+        while loop_level > 0:
+            instruction_pointer -= 1
+            char = program[instruction_pointer]
+            # Reverse parsing
+            if char == "[":
+                loop_level -= 1
+            if char == "]":
+                loop_level += 1
+                
+        instruction_pointer += 1
 
     if instruction_pointer_forward:
         instruction_pointer += 1
