@@ -1,5 +1,5 @@
 # Golfed mini-intepreter (no eval)
-# Bytes: 313
+# Bytes: 298
 # Techniques: Replaced char matching with index y, replaced conditional addition  
 # with adding boolean values (x+(a==2)), variable renaming and replacing 
 # repeated expressions. Note: z is 1 or -1
@@ -9,7 +9,7 @@ F = "examples/multiply2.b"
 C = 256
 T = 30000
 #----------------------------
-with open(F,'r')as z:p=z.read()
+p=open(F).read()
 t=[0]*T
 i=d=l=0
 y="><+-.,[]"
