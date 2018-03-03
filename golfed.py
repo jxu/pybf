@@ -1,4 +1,4 @@
-# Golfed mini-intepreter (no eval)
+# Golfed mini-intepreter (no exec)
 # Bytes: 298
 # Techniques: Replaced char matching with index y, replaced conditional addition  
 # with adding boolean values (x+(a==2)), variable renaming and replacing 
@@ -14,7 +14,9 @@ t=[0]*T
 i=d=l=0
 y="><+-.,[]"
 while i<len(p):
- c=p[i];x=t[d];a=y.index(c)if c in y else-1;t[d]=(x+(a==2)-(a==3))%C;d+=(a==0)-(a==1)
+ c=p[i];x=t[d];a=9
+ if c in y:a=y.index(c)
+ t[d]=(x+(a==2)-(a==3))%C;d+=(a==0)-(a==1)
  if a==4:print(chr(x),end='')
  if a==5:t[d]=ord(input())
  if a-6==(x!=0):
